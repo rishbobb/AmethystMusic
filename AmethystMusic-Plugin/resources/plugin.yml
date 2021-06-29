@@ -1,0 +1,16 @@
+main: com.rishabhroy.Main
+name: AmethystMusic
+version: 1.0.0
+author: Rishabh
+api-version: 1.17
+
+commands:
+  play:
+    description: play a piano note in amethyst sound
+    usage: usage - /play <note 0-24>
+  verbose:
+    description: turn on or off verbose mode
+    usage: usage - /verbose <on or off>
+  song:
+    description: set your song
+    usage: usage - get song from website
