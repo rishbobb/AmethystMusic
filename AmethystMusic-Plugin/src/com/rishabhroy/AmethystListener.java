@@ -63,20 +63,20 @@ public class AmethystListener implements Listener {
     public void onBlockPlace(BlockPlaceEvent e) {
         Material blockType = e.getBlockPlaced().getType();
         if (blockType == Material.AMETHYST_BLOCK) {
+            if (!playerSongs.contains(e.getPlayer())) {
+                enrollPlayer(e.getPlayer());
+            }
             for(Player p : Main.getPlugin().getServer().getOnlinePlayers()) {
-                if (!playerSongs.contains(e.getPlayer())) {
-                    enrollPlayer(e.getPlayer());
-                }
                 p.playSound(e.getBlock().getLocation(), Sound.BLOCK_LODESTONE_PLACE, 10, convertPiano(songData.get(playerSongs.indexOf(e.getPlayer())).get(playerBuffers.get(playerSongs.indexOf(e.getPlayer())))));
-                if (verbose.get(playerSongs.indexOf(e.getPlayer()))) {
-                    e.getPlayer().sendMessage("Sound " + (playerBuffers.get(playerSongs.indexOf(e.getPlayer())) + 1) + " played");
-                }
-                if (playerBuffers.get(playerSongs.indexOf(e.getPlayer())) == (songData.get(playerSongs.indexOf(e.getPlayer())).size() - 1)) {
-                    playerBuffers.set(playerSongs.indexOf(e.getPlayer()),0);
-                }
-                else if (!(playerBuffers.get(playerSongs.indexOf(e.getPlayer())) == (songData.get(playerSongs.indexOf(e.getPlayer())).size() - 1))) {
-                    playerBuffers.set(playerSongs.indexOf(e.getPlayer()),playerBuffers.get(playerSongs.indexOf(e.getPlayer())) + 1);
-                }
+            }
+            if (verbose.get(playerSongs.indexOf(e.getPlayer()))) {
+                e.getPlayer().sendMessage("Sound " + (playerBuffers.get(playerSongs.indexOf(e.getPlayer())) + 1) + " played");
+            }
+            if (playerBuffers.get(playerSongs.indexOf(e.getPlayer())) == (songData.get(playerSongs.indexOf(e.getPlayer())).size() - 1)) {
+                playerBuffers.set(playerSongs.indexOf(e.getPlayer()),0);
+            }
+            else if (!(playerBuffers.get(playerSongs.indexOf(e.getPlayer())) == (songData.get(playerSongs.indexOf(e.getPlayer())).size() - 1))) {
+                playerBuffers.set(playerSongs.indexOf(e.getPlayer()),playerBuffers.get(playerSongs.indexOf(e.getPlayer())) + 1);
             }
         }
     }
