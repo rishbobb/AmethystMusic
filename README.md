@@ -5,13 +5,14 @@ HOW TO USE:
 Simply drag the jarfile to the plugins folder of your server. Drag the zip file to the resourcepacks folder of your game and apply the resourcepack in game. Done!
 
 COMMANDS:
-/play <note 0-24>
+
+`/play <note 0-24>`
   Plays a note with the Amethyst Block sound
 
-/verbose <on or off>
+`/verbose <on or off>`
    Turns on or off verbose mode. In verbose mode the plugin will send a message every time a note is played, specifying the number of the note in the song.
  
-/song <song code>
+`/song <song code>`
   Sets the current song. Song codes can be generated at https://amethystmusic.netlify.app/
   
 This chart can be used to reference piano notes to their numbers. Source: https://static.wikia.nocookie.net/minecraft_gamepedia/images/b/bd/Noteblock_reference.png/revision/latest?cb=20170731114147
